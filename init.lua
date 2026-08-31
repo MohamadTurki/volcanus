@@ -1,6 +1,7 @@
 require("options")
 require("keymaps")
-
+require("util.cursor").setup()
+require("util.yank_highlight").setup()
 
 vim.pack.add({
   "https://github.com/williamboman/mason.nvim",
@@ -12,11 +13,13 @@ vim.pack.add({
   "https://github.com/nvim-lua/plenary.nvim",
   "https://github.com/MunifTanjim/nui.nvim",
   "https://github.com/nvim-tree/nvim-web-devicons",
-  'https://github.com/folke/noice.nvim',
+  "https://github.com/folke/noice.nvim",
   "https://github.com/Saghen/blink.cmp",
   "https://github.com/Saghen/blink.lib",
   "https://github.com/chomosuke/typst-preview.nvim",
-
+  "https://github.com/norcalli/nvim-colorizer.lua",
+  "https://github.com/folke/snacks.nvim",
+  "https://github.com/folke/persistence.nvim",
   -- Clean URLs only so it doesn't block startup
   -- "https://github.com/yetone/avante.nvim", 
   -- "https://github.com/zbirenbaum/copilot.lua"

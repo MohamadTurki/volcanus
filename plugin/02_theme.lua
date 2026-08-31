@@ -1,7 +1,7 @@
 local status_ok, tokyonight = pcall(require, "tokyonight")
 if status_ok then
   tokyonight.setup({
-    style = "moon", -- Choose between: storm, moon, night, day
+    style = "night", -- Choose between: storm, moon, night, day
     transparent = false, -- Set to true if you want your terminal background to show through
     styles = {
       sidebars = "dark", -- style for sidebars, logging windows and qf

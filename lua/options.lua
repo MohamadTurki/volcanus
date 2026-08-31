@@ -1,13 +1,14 @@
 -- ~/.config/nvim/lua/config/options.lua
 
 vim.g.mapleader = " "
+vim.opt.splitright = true
 -- 1. Line Numbers
 vim.opt.number = true          -- Shows line numbers on the left
 -- opt.relativenumber = true  -- Relative line numbers (crucial for quick jumps like "5j")
 
 -- 2. Tabs & Indentation
-vim.opt.tabstop = 4            -- Render a tab as 4 spaces
-vim.opt.shiftwidth = 4         -- Number of spaces to use for auto-indentation
+vim.opt.tabstop = 2            -- Render a tab as 4 spaces
+vim.opt.shiftwidth = 2         -- Number of spaces to use for auto-indentation
 vim.opt.expandtab = true       -- Convert tabs to spaces automatically
 vim.opt.autoindent = true      -- Copy indent from the current line when starting a new one
 
@@ -34,6 +35,7 @@ vim.opt.undofile = true        -- Save persistent undo history to disk (retains 
 -- 7. Clipboard Integration
 vim.opt.clipboard = "unnamedplus" -- Syncs Neovim's clipboard directly with your system clipboard (allows Ctrl+C / Ctrl+V out-of-the-box)
 
-vim.o.wrap = false 
+vim.opt.wrap = true
+vim.opt.linebreak = true
 vim.opt.completeopt = { "menuone", "noselect" }
 
