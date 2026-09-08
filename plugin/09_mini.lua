@@ -6,7 +6,6 @@ local function get_listed_bufs()
   end, vim.api.nvim_list_bufs())
 end
 
--- Setup mini.tabline with custom shortcut labels
 require("mini.tabline").setup({
   show_icons = true,
   format = function(buf_id, label)
@@ -36,7 +35,8 @@ end
 
 vim.keymap.set("n", "<Tab>", "<cmd>bnext<CR>", { desc = "Next buffer tab" })
 vim.keymap.set("n", "<S-Tab>", "<cmd>bprevious<CR>", { desc = "Previous buffer tab" })
-vim.keymap.set("n", "<leader>bd", "<cmd>bdelete<CR>", { desc = "Close current buffer" })
+vim.keymap.set("n", "<C-k>", "<cmd>bdelete<CR>", { desc = "Close current buffer" })
+vim.keymap.set("n", "<C-t>", "<cmd>tabnew<CR>", { desc = "Open new tab page" })
 
 local hipatterns = require("mini.hipatterns")
 hipatterns.setup({

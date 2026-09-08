@@ -50,5 +50,10 @@ keymap('n', '<C-M-Up>',    ':wincmd K<CR>', { silent = true, desc = 'Move window
 keymap('n', '<C-M-Right>', ':wincmd L<CR>', { silent = true, desc = 'Move window far Right' })
 
 keymap("n", "<leader>nt", function()
-  vim.fn.jobstart("st fish") 
-end, { desc = "Open new terminal window" })
+  local dir = vim.fn.expand("%:p:h")
+  if dir == "" then
+    dir = vim.fn.getcwd()
+  end
+
+  vim.fn.jobstart({ "st", "-e", "fish" }, { cwd = dir })
+end, { desc = "Open new terminal window in current dir" })

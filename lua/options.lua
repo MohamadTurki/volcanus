@@ -41,7 +41,7 @@ vim.opt.undofile = true        -- Save persistent undo history to disk (retains 
 -- 7. Clipboard Integration
 vim.opt.clipboard = "unnamedplus" -- Syncs Neovim's clipboard directly with your system clipboard (allows Ctrl+C / Ctrl+V out-of-the-box)
 
-vim.opt.wrap = true
-vim.opt.linebreak = true
+vim.opt.wrap = false
+vim.opt.linebreak = false
 vim.opt.completeopt = { "menuone", "noselect" }
 

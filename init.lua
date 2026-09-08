@@ -17,11 +17,11 @@ vim.pack.add({
   "https://github.com/Saghen/blink.cmp",
   "https://github.com/Saghen/blink.lib",
   "https://github.com/chomosuke/typst-preview.nvim",
-  -- "https://github.com/norcalli/nvim-colorizer.lua",
   "https://github.com/folke/snacks.nvim",
   "https://github.com/folke/persistence.nvim",
   "https://github.com/nvim-mini/mini.tabline",
   "https://github.com/nvim-mini/mini.hipatterns",
+  "https://github.com/RaafatTurki/hex.nvim",
   -- Clean URLs only so it doesn't block startup
   -- "https://github.com/yetone/avante.nvim", 
   -- "https://github.com/zbirenbaum/copilot.lua"

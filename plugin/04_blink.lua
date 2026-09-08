@@ -1,11 +1,9 @@
 local ok, blink_cmp = pcall(require, "blink.cmp")
 if not ok then return end
 
--- Default state: enabled
 vim.g.blink_cmp_enabled = true
 
 blink_cmp.setup({
-  -- Dynamic check for toggle flag and excluded filetypes
   enabled = function()
     return vim.g.blink_cmp_enabled
       and not vim.tbl_contains({ "markdown", "text", "plaintex", "gitcommit" }, vim.bo.filetype)
@@ -40,7 +38,6 @@ blink_cmp.setup({
   },
 })
 
--- Self-contained toggle shortcut
 vim.keymap.set("n", "<leader>tc", function()
   vim.g.blink_cmp_enabled = not vim.g.blink_cmp_enabled
 
