@@ -2,6 +2,9 @@ local ok, noice = pcall(require, "noice")
 if not ok then return end
 
 noice.setup({
+  lsp = {
+    signature = { enabled = false }, -- blink.cmp already shows signature help
+  },
   cmdline = {
     enabled = true,
     view = "cmdline_popup",

@@ -1,7 +1,7 @@
 require 'typst-preview'.setup {
   -- Setting this true will enable logging debug information to
   -- `vim.fn.stdpath 'data' .. '/typst-preview/log.txt'`
-  debug = false,
+  debug = true,
 
   -- Custom format string to open the output link provided with %s
   -- Example: open_cmd = 'firefox %s -P typst-preview --class typst-preview'
@@ -37,7 +37,7 @@ require 'typst-preview'.setup {
   -- Warning: Be aware that your version might be older than the one
   -- required.
   dependencies_bin = {
-    tinymist = nil,
+    ['tinymist'] = 'tinymist',
     websocat = nil
   },
 

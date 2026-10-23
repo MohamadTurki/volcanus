@@ -8,46 +8,39 @@ end, { desc = "Save file" })
 -- Clear search highlights with Esc
 keymap("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlights" })
 
--- window navigation
--- hjkl
-keymap('n', '<C-h>', ':wincmd h<CR>', { silent = true, desc = 'Focus Left window' })
-keymap('n', '<C-j>', ':wincmd j<CR>', { silent = true, desc = 'Focus Lower window' })
-keymap('n', '<C-k>', ':wincmd k<CR>', { silent = true, desc = 'Focus Upper window' })
-keymap('n', '<C-l>', ':wincmd l<CR>', { silent = true, desc = 'Focus Right window' })
+-- Windows: Ctrl = focus, Alt = resize, Ctrl+Alt = move (hjkl or arrows)
+local directions = {
+  { key = "h", arrow = "Left",  name = "Left",  resize = "vertical resize -2", resize_desc = "Decrease window width" },
+  { key = "j", arrow = "Down",  name = "Lower", resize = "resize +2",          resize_desc = "Increase window height" },
+  { key = "k", arrow = "Up",    name = "Upper", resize = "resize -2",          resize_desc = "Decrease window height" },
+  { key = "l", arrow = "Right", name = "Right", resize = "vertical resize +2", resize_desc = "Increase window width" },
+}
 
--- Arrows
-keymap('n', '<C-Left>',  ':wincmd h<CR>', { silent = true, desc = 'Focus Left window' })
-keymap('n', '<C-Down>',  ':wincmd j<CR>', { silent = true, desc = 'Focus Lower window' })
-keymap('n', '<C-Up>',    ':wincmd k<CR>', { silent = true, desc = 'Focus Upper window' })
-keymap('n', '<C-Right>', ':wincmd l<CR>', { silent = true, desc = 'Focus Right window' })
+for _, d in ipairs(directions) do
+  local focus, resize, move = "<C-w>" .. d.key, "<cmd>" .. d.resize .. "<CR>", "<C-w>" .. d.key:upper()
 
--- window resizing (Ctrl + Shift + hjkl / Arrows)
--- hjkl (Explicit Ctrl+Shift keycodes)
-keymap('n', '<M-h>', ':vertical resize -2<CR>', { silent = true, desc = 'Decrease window width' })
-keymap('n', '<M-j>', ':resize +2<CR>',          { silent = true, desc = 'Increase window height' })
-keymap('n', '<M-k>', ':resize -2<CR>',          { silent = true, desc = 'Decrease window height' })
-keymap('n', '<M-l>', ':vertical resize +2<CR>', { silent = true, desc = 'Increase window width' })
+  keymap("n", "<C-" .. d.key .. ">", focus, { desc = "Focus " .. d.name .. " window" })
+  keymap("n", "<C-" .. d.arrow .. ">", focus, { desc = "Focus " .. d.name .. " window" })
 
--- Arrows
-keymap('n', '<C-S-Left>',  ':vertical resize -2<CR>', { silent = true, desc = 'Decrease window width' })
-keymap('n', '<C-S-Down>',  ':resize +2<CR>',          { silent = true, desc = 'Increase window height' })
-keymap('n', '<C-S-Up>',    ':resize -2<CR>',          { silent = true, desc = 'Decrease window height' })
-keymap('n', '<C-S-Right>', ':vertical resize +2<CR>', { silent = true, desc = 'Increase window width' })
+  keymap("n", "<M-" .. d.key .. ">", resize, { desc = d.resize_desc })
+  keymap("n", "<C-S-" .. d.arrow .. ">", resize, { desc = d.resize_desc })
 
+  keymap("n", "<C-M-" .. d.key .. ">", move, { desc = "Move window " .. d.name })
+  keymap("n", "<C-M-" .. d.arrow .. ">", move, { desc = "Move window " .. d.name })
+end
 
--- window movement 
+-- Editing
+keymap("v", "<", "<gv", { desc = "Indent left (keep selection)" })
+keymap("v", ">", ">gv", { desc = "Indent right (keep selection)" })
+keymap("v", "J", ":m '>+1<CR>gv=gv", { silent = true, desc = "Move selection down" })
+keymap("v", "K", ":m '<-2<CR>gv=gv", { silent = true, desc = "Move selection up" })
 
--- hjkl
-keymap('n', '<C-M-h>', ':wincmd H<CR>', { silent = true, desc = 'Move window far Left' })
-keymap('n', '<C-M-j>', ':wincmd J<CR>', { silent = true, desc = 'Move window to Bottom' })
-keymap('n', '<C-M-k>', ':wincmd K<CR>', { silent = true, desc = 'Move window to Top' })
-keymap('n', '<C-M-l>', ':wincmd L<CR>', { silent = true, desc = 'Move window far Right' })
+-- Comment toggle (Neovim's built-in gc; works with dot-repeat and counts: 3<leader>/)
+keymap("n", "<leader>/", "gcc", { remap = true, desc = "Toggle comment line" })
+keymap("x", "<leader>/", "gc", { remap = true, desc = "Toggle comment selection" })
 
--- Arrows
-keymap('n', '<C-M-Left>',  ':wincmd H<CR>', { silent = true, desc = 'Move window far Left' })
-keymap('n', '<C-M-Down>',  ':wincmd J<CR>', { silent = true, desc = 'Move window to Bottom' })
-keymap('n', '<C-M-Up>',    ':wincmd K<CR>', { silent = true, desc = 'Move window to Top' })
-keymap('n', '<C-M-Right>', ':wincmd L<CR>', { silent = true, desc = 'Move window far Right' })
+-- Diagnostics (]d / [d jump between them)
+keymap("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Line diagnostics" })
 
 keymap("n", "<leader>nt", function()
   local dir = vim.fn.expand("%:p:h")

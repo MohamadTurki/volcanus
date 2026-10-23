@@ -7,7 +7,7 @@ function M.setup()
     desc = 'Highlight when yanking text',
     group = group,
     callback = function()
-      vim.highlight.on_yank({
+      vim.hl.on_yank({
         higroup = 'Substitute',
         timeout = 200,
       })
