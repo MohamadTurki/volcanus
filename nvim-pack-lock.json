@@ -1,5 +1,9 @@
 {
   "plugins": {
+    "blink-copilot": {
+      "rev": "7ad8209b2f880a2840c94cdcd80ab4dc511d4f39",
+      "src": "https://github.com/fang2hou/blink-copilot"
+    },
     "blink.cmp": {
       "rev": "0f54bd78892f587db4dcf100a23eaddfc2a9df7d",
       "src": "git@github.com:Saghen/blink.cmp"
@@ -19,6 +23,14 @@
     "conform.nvim": {
       "rev": "016802de402556da54c36bd7359b441266b01cdd",
       "src": "https://github.com/stevearc/conform.nvim"
+    },
+    "copilot.lua": {
+      "rev": "bae5beb4bd902498ba80add63db5a7e7e6ffb4d8",
+      "src": "https://github.com/zbirenbaum/copilot.lua"
+    },
+    "cyberdream.nvim": {
+      "rev": "642c55ad2225f9f4809905918121b2c6d252ad58",
+      "src": "https://github.com/scottmckendry/cyberdream.nvim"
     },
     "hex.nvim": {
       "rev": "b46e63356a69e8d6f046c38a9708d55d17f15038",

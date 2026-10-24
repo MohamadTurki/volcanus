@@ -2,14 +2,11 @@
 
 require("mason").setup()
 
--- Servers installed through Mason are enabled automatically.
--- stylua is a formatter: conform runs it (see 11_conform.lua), not the LSP.
 require("mason-lspconfig").setup({
   ensure_installed = { "lua_ls" },
-  automatic_enable = { exclude = { "stylua" } },
+  automatic_enable = { exclude = { "stylua", "copilot" } },
 })
 
--- Teach lua_ls about the Neovim runtime so `vim.*` is known.
 vim.lsp.config("lua_ls", {
   settings = {
     Lua = {
@@ -47,7 +44,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("<leader>cs", picker.lsp_symbols, "Document symbols")
     map("<leader>cS", picker.lsp_workspace_symbols, "Workspace symbols")
 
-    -- Prefer LSP folds (they know about imports, regions, ...) when the server has them.
     local client = vim.lsp.get_client_by_id(ev.data.client_id)
     if client and client:supports_method("textDocument/foldingRange") then
       local win = vim.api.nvim_get_current_win()

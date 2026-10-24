@@ -10,7 +10,9 @@ vim.pack.add({
   "https://github.com/MunifTanjim/nui.nvim",
   "https://github.com/nvim-tree/nvim-web-devicons",
   "https://github.com/nvim-treesitter/nvim-treesitter",
-  { src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
+  "https://github.com/scottmckendry/cyberdream.nvim",
+  "https://github.com/folke/tokyonight.nvim", -- old theme, kept for switching back
+  { src = "https://github.com/catppuccin/nvim", name = "catppuccin" }, -- old theme, kept for switching back
   "https://github.com/nvim-neo-tree/neo-tree.nvim",
   "https://github.com/nvim-lua/plenary.nvim",
   "https://github.com/folke/noice.nvim",
@@ -24,7 +26,8 @@ vim.pack.add({
   "https://github.com/nvim-mini/mini.clue",
   "https://github.com/stevearc/conform.nvim",
   "https://github.com/RaafatTurki/hex.nvim",
+  "https://github.com/zbirenbaum/copilot.lua",
+  "https://github.com/fang2hou/blink-copilot",
   -- Clean URLs only so it doesn't block startup
-  -- "https://github.com/yetone/avante.nvim", 
-  -- "https://github.com/zbirenbaum/copilot.lua"
+  -- "https://github.com/yetone/avante.nvim",
 })

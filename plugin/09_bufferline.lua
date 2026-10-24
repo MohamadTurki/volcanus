@@ -6,8 +6,9 @@ local bufferline = require("bufferline")
 local close_buf = function(buf) Snacks.bufdelete(buf) end
 
 bufferline.setup({
+  -- Tokyo Night colors bufferline on its own, so no highlights are needed here.
   -- Catppuccin colors; bold (not italic) for the active tab keeps it clean.
-  highlights = require("catppuccin.special.bufferline").get_theme({ styles = { "bold" } }),
+  -- highlights = require("catppuccin.special.bufferline").get_theme({ styles = { "bold" } }),
   options = {
     mode = "buffers",
     style_preset = bufferline.style_preset.minimal,
