@@ -6,6 +6,18 @@ hipatterns.setup({
   },
 })
 
+-- ── Statusline ───────────────────────────────────────────────────────────────
+-- Shows: mode │ git branch, diagnostics, LSP │ file name │ file type, encoding │ line:col
+-- mini.git provides the branch name; it also adds a :Git command.
+require("mini.git").setup()
+require("mini.statusline").setup()
+vim.opt.showmode = false -- The statusline already shows the mode
+
+-- ── Auto pairs ───────────────────────────────────────────────────────────────
+-- Typing ( [ { " ' ` inserts the closing one too; typing the closer skips over it,
+-- and <BS> between an empty pair deletes both.
+require("mini.pairs").setup()
+
 local miniclue = require("mini.clue")
 miniclue.setup({
   window = { delay = 300 },

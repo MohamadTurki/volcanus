@@ -44,6 +44,10 @@
       "rev": "2a6940af80375532e5e9e7c1f2fc6319a1b7a69d",
       "src": "git@github.com:williamboman/mason.nvim"
     },
+    "mini-git": {
+      "rev": "35d9a918721c533490f1ae9268a4f0b7c840e1f4",
+      "src": "https://github.com/nvim-mini/mini-git"
+    },
     "mini.clue": {
       "rev": "149236aed07cf15266dbaf2736452ad6b0dced47",
       "src": "https://github.com/nvim-mini/mini.clue"
@@ -51,6 +55,14 @@
     "mini.hipatterns": {
       "rev": "7c840c71d6a91f53d734cab2b6fe2290d285ec3b",
       "src": "git@github.com:nvim-mini/mini.hipatterns"
+    },
+    "mini.pairs": {
+      "rev": "03eb1f0062a2cee5314d1ac3939246e4bb21352e",
+      "src": "https://github.com/nvim-mini/mini.pairs"
+    },
+    "mini.statusline": {
+      "rev": "d7133a9a244a8d93ccee42ff37fb9499af5956fb",
+      "src": "https://github.com/nvim-mini/mini.statusline"
     },
     "neo-tree.nvim": {
       "rev": "b01ee1769144c4491ea44bc329cb84040e9793be",

@@ -24,6 +24,9 @@ vim.pack.add({
   "https://github.com/akinsho/bufferline.nvim",
   "https://github.com/nvim-mini/mini.hipatterns",
   "https://github.com/nvim-mini/mini.clue",
+  "https://github.com/nvim-mini/mini.statusline",
+  "https://github.com/nvim-mini/mini-git", -- repo uses a dash; module is still mini.git
+  "https://github.com/nvim-mini/mini.pairs",
   "https://github.com/stevearc/conform.nvim",
   "https://github.com/RaafatTurki/hex.nvim",
   "https://github.com/zbirenbaum/copilot.lua",
